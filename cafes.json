@@ -1,0 +1,40 @@
+[{
+  "name": "Mercury Cafe",
+  "address": "2199 California St",
+  "city": "Denver, CO",
+  "zipCode": "80205",
+  "genreOfMusic": ["folk", "indie", "singer/songwriter", "classical"],
+  "wheelchairAccessible": true
+},
+{
+  "name": "Gypsy House Cafe",
+  "address": "1545 S Broadway",
+  "city": "Denver, CO",
+  "zipCode": "80210",
+  "genreOfMusic": ["hip-hop", "rap", "soul", "reggae", "r&b"],
+  "wheelchairAccessible": true
+},
+{
+  "name": "Muse Noraebang & Cafe",
+  "address": "2222 S Havana St Unit D",
+  "city": "Aurora, CO",
+  "zipCode": "80014",
+  "genreOfMusic": ["karaoke"],
+  "wheelchairAccessible": true
+},
+{
+  "name": "The Molecule Effect",
+  "address": "300 S Logan St Unit 101",
+  "city": "Denver, CO",
+  "zipCode": "80209",
+  "genreOfMusic": ["folk", "electronic", "world", "top 40"],
+  "wheelchairAccessible": true
+},
+{"name": "Mutiny Information Cafe",
+  "address": "2 S Broadway",
+  "city": "Denver, CO",
+  "zipCode": "80209",
+  "genreOfMusic": ["blues", "rock", "indie", "alternative", "pop"],
+  "wheelchairAccessible": true
+}
+]
