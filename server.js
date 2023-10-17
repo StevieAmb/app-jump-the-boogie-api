@@ -1,6 +1,8 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const password = encodeURIComponent("GreenFyre24");
+require('dotenv').config();
+
+const password = process.env.SERVER_PW;
 const uri = `mongodb+srv://Cluster32071:${password}@cluster0.kw7e6zd.mongodb.net/?retryWrites=true&w=majority`;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
