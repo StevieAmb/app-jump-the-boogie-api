@@ -5,6 +5,7 @@ require('dotenv').config();
 const password = process.env.SERVER_PW;
 const uri = `mongodb+srv://Cluster32071:${password}@cluster0.kw7e6zd.mongodb.net/?retryWrites=true&w=majority`;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -20,6 +21,14 @@ async function run() {
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+    const dbName = "MusicalCafes";
+    const collectionName = "cafes";
+  
+    // Create references to the database and collection in order to run
+    // operations on them.
+    const database = client.db(dbName);
+    const collection = database.collection(collectionName);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
