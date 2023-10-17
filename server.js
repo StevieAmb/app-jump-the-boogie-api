@@ -1,10 +1,15 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
+
+const app = express()
+app.use(cors())
+app.use(express.json())
 
 const password = process.env.SERVER_PW;
 const uri = `mongodb+srv://Cluster32071:${password}@cluster0.kw7e6zd.mongodb.net/?retryWrites=true&w=majority`;
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -21,17 +26,25 @@ async function run() {
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-
-    const dbName = "MusicalCafes";
-    const collectionName = "cafes";
-  
-    // Create references to the database and collection in order to run
-    // operations on them.
-    const database = client.db(dbName);
-    const collection = database.collection(collectionName);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+  } catch(err) {
+    console.log('made an error', err)
   }
 }
-run().catch(console.dir);
+run();
+
+const dbName = "MusicalCafes";
+const collectionName = "cafes";
+const database = client.db(dbName);
+const collection = database.collection(collectionName);
+
+app.listen(1771, () => {
+  console.log('You/re connected')
+})
+
+app.get('/api/cafes/getCafes', async (req, res) => {
+  let cafes = await collection.find({}).toArray((err, result) => {
+      return result
+    })
+  res.send(cafes)
+})
+
